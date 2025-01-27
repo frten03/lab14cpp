@@ -1,19 +1,9 @@
-template <typename T>
-void insertionSort(T d[],int N){
-	for(int i=1;i<N;i++){
-		int key = d[i] ;
-		int j = i - 1 ;
-		while(j>=0 and d[j] < key){
-			d[j+1] = d[j] ;
-			j-- ;
-		}
-		d[j+1] = key ;
-
-		cout << "Pass " << i << ":" ;
+void findLocalMax(const double A[][N], bool B[][N]){
+	for(int i=0;i<N;i++){
 		for(int j=0;j<N;j++){
-			cout << d[j] << " " ;
+			if(i==0 or i==N-1 or j==0 or j==N-1) B[i][j] = false ;
+			else{if(A[i][j]>A[i-1][j] and A[i][j]>A[i+1][j] and A[i][j]>A[i][j-1] and A[i][j]>A[i][j+1]) B[i][j] = true ;
+			else B[i][j] = false ;}
 		}
-		cout << "\n" ;
-
 	}
 }
